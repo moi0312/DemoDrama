@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">DemoVideoListWithRoom</string>
+    <string name="hintInputSearch">filter drama</string>
+    <string name="listEmpty">no data</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="loadingText">loading&#8230;</string>
+</resources>
