@@ -19,7 +19,6 @@ class LoadingDialog(context: Context, themeResId: Int): Dialog(context, themeRes
             layoutParams.y = 0
             layoutParams.width = context.resources.displayMetrics.widthPixels
             w.attributes = layoutParams
-//            w.setBackgroundDrawableResource()
         }
     }
 

@@ -2,7 +2,9 @@ package com.example.testcoroutines.net
 
 import com.edlo.demogithub.util.Log
 import com.edlo.demovideolistwithroom.BuildConfig
+import com.edlo.demovideolistwithroom.MyDemoApplication
 import com.edlo.demovideolistwithroom.db.Drama
+import com.edlo.demovideolistwithroom.net.NetworkCallback
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -43,13 +45,19 @@ class ApiChocoHelper private constructor() {
         service = retrofit.create(ApiChocoService::class.java)
     }
 
+    private fun isNetworkAvailable(): Boolean {
+        return NetworkCallback.INSTANCE.networkAvailable
+    }
+
     suspend fun listDramasSample(): ArrayList<Drama>? {
         var result: ArrayList<Drama>? = null
-        try {
-            var response = service.listDramasSample()?.await()
-            result = response?.data
-        } catch (e: HttpException) {
-            Log.e("${e.code()} : ${e.message()}")
+        if(isNetworkAvailable()){
+            try {
+                var response = service.listDramasSample()?.await()
+                result = response?.data
+            } catch (e: HttpException) {
+                Log.e("${e.code()} : ${e.message()}")
+            }
         }
         return result
     }

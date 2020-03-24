@@ -16,16 +16,16 @@ data class Drama (
     val id: Int,
 
     @ColumnInfo
-    val name: String?,
+    val name: String,
 
     @SerializedName("total_views")
     @ColumnInfo(name = "total_views")
-    val totalViews: String?,
+    val totalViews: String,
 
     @SerializedName("created_at")
     @ColumnInfo(name = "created_at")
-    val createdAt: String?,
+    val createdAt: String,
 
-    @ColumnInfo val thumb: String?,
-    @ColumnInfo val rating: Float?
+    @ColumnInfo val thumb: String,
+    @ColumnInfo val rating: Float
 ): Serializable

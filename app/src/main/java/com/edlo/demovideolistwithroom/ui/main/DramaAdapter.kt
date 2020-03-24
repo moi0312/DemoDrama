@@ -4,9 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.edlo.demogithub.util.GlideApp
+import com.edlo.demovideolistwithroom.R
 import com.edlo.demovideolistwithroom.databinding.ItemDramaBinding
 import com.edlo.demovideolistwithroom.db.Drama
 import com.edlo.demovideolistwithroom.ui.base.EmptyViewSupportAdapter
+import com.edlo.demovideolistwithroom.util.Utilities
 
 class DramaAdapter : EmptyViewSupportAdapter<DramaAdapter.DramaViewHolder>() {
     companion object {
@@ -45,22 +47,30 @@ class DramaAdapter : EmptyViewSupportAdapter<DramaAdapter.DramaViewHolder>() {
             this.binding = binding
         }
 
-//        init {
-//            itemView.setOnClickListener {
-//            }
-//        }
+        init {
+            itemView.setOnClickListener {
+                val ctx = itemView.context
+                if(ctx is MainActivity){
+                    ctx.gotoDramaDetail(item)
+                }
+            }
+        }
 
         fun bindTo(item: Drama) {
             this.item = item
             binding.txtName.text = item.name
-            //TODO: date format
-            binding.txtDate.text = item.createdAt
+            binding.ratingBar.rating = item.rating
+            val ctx = itemView.context
+            binding.txtDate.text = Utilities.parseUTCDateString(
+                item.createdAt,
+                ctx.getString(R.string.dateFormat_yyyyMMdd_T_HHmmssSSS_Z),
+                ctx.getString(R.string.dateFormat_yyyyMMdd)
+            )
 
-            item.thumb.let {
-                GlideApp.with(binding.root.context)
-                    .load(it)
-                    .into(binding.imgDrama)
-            }
+            GlideApp.with(binding.root.context)
+                .load(item.thumb)
+                .placeholder(R.drawable.shape_drama_thumb)
+                .into(binding.imgDrama)
         }
 
     }

@@ -19,4 +19,13 @@
         <!--        <item name="android:windowIsTranslucent">true</item>-->
     </style>
 
+    <style name="ItemDrama_date">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="DetailDrama_name">
+        <item name="android:textSize">@dimen/dramaDetail_title_textSize</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>

@@ -1,41 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
+<layout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/imgDrama"
-            android:layout_width="0dp"
-            android:layout_height="100dp"
+            android:layout_width="@dimen/dramaItem_thumb_width"
+            android:layout_height="@dimen/dramaItem_thumb_height"
             android:layout_marginHorizontal="@dimen/padding"
             android:layout_marginTop="@dimen/margin"
+            android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/txtName"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding"
-            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="@+id/imgDrama"
             app:layout_constraintStart_toStartOf="@+id/imgDrama"
             app:layout_constraintTop_toBottomOf="@+id/imgDrama" />
 
         <TextView
             android:id="@+id/txtDate"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            style="@style/ItemDrama_date"
             app:layout_constraintEnd_toEndOf="@+id/imgDrama"
+            app:layout_constraintStart_toStartOf="@+id/imgDrama"
             app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
 
         <RatingBar
             android:id="@+id/ratingBar"
+            style="@style/Widget.AppCompat.RatingBar.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@+id/imgDrama"

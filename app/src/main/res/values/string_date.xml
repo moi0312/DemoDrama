@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="dateFormat_yyyyMMdd" translatable="false">yyyy/MM/dd</string>
     <string name="dateFormat_yyyyMMdd_HHmmss" translatable="false">yyyy/MM/dd HH:mm:ss</string>
+    <string name="dateFormat_yyyyMMdd_T_HHmmss_Z" translatable="false">yyyy-MM-dd\'T\'HH:mm:ss\'Z\'</string>
+    <string name="dateFormat_yyyyMMdd_T_HHmmssSSS_Z" translatable="false">yyyy-MM-dd\'T\'HH:mm:ss.SSS\'Z\'</string>
 </resources>

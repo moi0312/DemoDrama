@@ -5,23 +5,16 @@ import androidx.room.*
 @Dao
 interface DramaDao {
     @Query("SELECT *, rowid FROM table_drama")
-    fun getAll(): List<Drama>
-
-    @Query("SELECT *, rowid FROM table_drama WHERE rowid IN (:dramaIds)")
-    fun loadAllByIds(dramaIds: IntArray): List<Drama>
+    suspend fun getAll(): List<Drama>
 
     @Query("SELECT *, rowid FROM table_drama WHERE name LIKE (:dramaName)")
-    fun loadAllByName(dramaName: String): List<Drama>
-
-//    @Query("SELECT * FROM drama WHERE first_name LIKE :first AND " +
-//            "last_name LIKE :last LIMIT 1")
-//    fun findByName(first: String, last: String): Drama
+    suspend fun findByName(dramaName: String): List<Drama>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(vararg users: Drama)
+    suspend fun insertAll(users: List<Drama>)
 
     @Update
-    fun update(user: Drama)
+    suspend fun update(user: Drama)
 
     @Delete
     fun delete(user: Drama)
