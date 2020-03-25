@@ -28,7 +28,7 @@ android {
         }
     }
 
-    dataBinding {
+    viewBinding {
         enabled true
     }
     compileOptions {

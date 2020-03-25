@@ -5,16 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
-import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import androidx.recyclerview.widget.GridLayoutManager
-import com.edlo.demodrama.R
 import com.edlo.demodrama.databinding.FragmentListBinding
 import com.edlo.demodrama.ui.base.BaseActivity
 import com.edlo.demodrama.ui.base.BaseFragment
+
 class MainFragment : BaseFragment<MainViewModel, FragmentListBinding>() {
     companion object {
         val TAG = MainFragment::class.java.simpleName
@@ -76,9 +75,9 @@ class MainFragment : BaseFragment<MainViewModel, FragmentListBinding>() {
         }
     }
 
-    override fun initDataBinding(inflater: LayoutInflater,
+    override fun initViewBinding(inflater: LayoutInflater,
             container: ViewGroup?, savedInstanceState: Bundle?): FragmentListBinding {
-        return DataBindingUtil.inflate(inflater, R.layout.fragment_list, container, false)
+        return FragmentListBinding.inflate(inflater, container, false)
     }
 }
 

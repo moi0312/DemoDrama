@@ -3,7 +3,6 @@ package com.edlo.demodrama.ui.main
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import com.edlo.demogithub.util.GlideApp
@@ -66,8 +65,8 @@ class DramaDetailFragment: BaseFragment<BaseViewModel, FragmentDramaDetailBindin
         return ViewModelProvider(activity as ViewModelStoreOwner).get(BaseViewModel::class.java)
     }
 
-    override fun initDataBinding(inflater: LayoutInflater,
+    override fun initViewBinding(inflater: LayoutInflater,
              container: ViewGroup?, savedInstanceState: Bundle?): FragmentDramaDetailBinding {
-        return DataBindingUtil.inflate(inflater, R.layout.fragment_drama_detail, container, false)
+        return FragmentDramaDetailBinding.inflate(inflater, container, false)
     }
 }
