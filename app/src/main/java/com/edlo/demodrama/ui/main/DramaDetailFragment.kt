@@ -1,4 +1,4 @@
-package com.edlo.demovideolistwithroom.ui.main
+package com.edlo.demodrama.ui.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,13 +7,14 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import com.edlo.demogithub.util.GlideApp
-import com.edlo.demovideolistwithroom.R
-import com.edlo.demovideolistwithroom.databinding.FragmentDramaDetailBinding
-import com.edlo.demovideolistwithroom.db.Drama
-import com.edlo.demovideolistwithroom.ui.base.BaseFragment
-import com.edlo.demovideolistwithroom.util.Utilities
+import com.edlo.demodrama.R
+import com.edlo.demodrama.databinding.FragmentDramaDetailBinding
+import com.edlo.demodrama.db.Drama
+import com.edlo.demodrama.ui.base.BaseFragment
+import com.edlo.demodrama.ui.base.BaseViewModel
+import com.edlo.demodrama.util.Utilities
 
-class DramaDetailFragment: BaseFragment<MainViewModel, FragmentDramaDetailBinding>() {
+class DramaDetailFragment: BaseFragment<BaseViewModel, FragmentDramaDetailBinding>() {
 
     companion object {
         val TAG = DramaDetailFragment::class.java.simpleName
@@ -61,12 +62,8 @@ class DramaDetailFragment: BaseFragment<MainViewModel, FragmentDramaDetailBindin
 
     }
 
-    override fun initViewModel(): MainViewModel {
-        return if(activity is MainActivity) {
-            (activity as MainActivity).getActivityViewModel()
-        } else {
-            ViewModelProvider(activity as ViewModelStoreOwner).get(MainViewModel::class.java)
-        }
+    override fun initViewModel(): BaseViewModel {
+        return ViewModelProvider(activity as ViewModelStoreOwner).get(BaseViewModel::class.java)
     }
 
     override fun initDataBinding(inflater: LayoutInflater,

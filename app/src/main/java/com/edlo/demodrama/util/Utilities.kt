@@ -1,4 +1,4 @@
-package com.edlo.demovideolistwithroom.util
+package com.edlo.demodrama.util
 
 import java.math.BigDecimal
 import java.text.DecimalFormat
@@ -18,7 +18,7 @@ class Utilities {
             val sdf = SimpleDateFormat(fromPattern)
             sdf.timeZone = TimeZone.getTimeZone("UTC")
             val date = sdf.parse(souceString)
-            return getFormatedDateString(date.time, toPattern)
+            return getFormatedDateString(date!!.time, toPattern)
         }
 
         fun getFormatedString(value: Double): String {

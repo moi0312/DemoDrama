@@ -1,4 +1,4 @@
-package com.edlo.demovideolistwithroom.ui.main
+package com.edlo.demodrama.ui.main
 
 import android.os.Bundle
 import android.view.View
@@ -6,14 +6,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.room.Room
-import com.edlo.demovideolistwithroom.R
-import com.edlo.demovideolistwithroom.databinding.ActivityMainBinding
-import com.edlo.demovideolistwithroom.db.Drama
-import com.edlo.demovideolistwithroom.db.DramaDB
-import com.edlo.demovideolistwithroom.net.NetworkCallback
-import com.edlo.demovideolistwithroom.net.NetworkCallbackListener
-import com.edlo.demovideolistwithroom.ui.base.BaseActivity
+import com.edlo.demodrama.R
+import com.edlo.demodrama.databinding.ActivityMainBinding
+import com.edlo.demodrama.db.Drama
+import com.edlo.demodrama.net.NetworkCallback
+import com.edlo.demodrama.ui.base.BaseActivity
 
 class MainActivity : BaseActivity<MainViewModel>() {
 
@@ -21,9 +18,7 @@ class MainActivity : BaseActivity<MainViewModel>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this,
-            R.layout.activity_main
-        )
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         viewModel.getNetworkAvailable().observe(this, Observer { available ->
             setOfflineModeView(available)

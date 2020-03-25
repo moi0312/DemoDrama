@@ -1,7 +1,7 @@
 package com.edlo.demogithub.util
 
 import android.util.Log
-import com.edlo.demovideolistwithroom.BuildConfig
+import com.edlo.demodrama.BuildConfig
 
 class Log {
     companion object {

@@ -1,4 +1,4 @@
-package com.edlo.demovideolistwithroom.ui.base
+package com.edlo.demodrama.ui.base
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

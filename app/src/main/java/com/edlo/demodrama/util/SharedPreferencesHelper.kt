@@ -1,10 +1,10 @@
-package com.edlo.demovideolistwithroom.util
+package com.edlo.demodrama.util
 
 import android.content.Context
 import android.content.SharedPreferences
 import androidx.core.content.edit
-import com.edlo.demovideolistwithroom.BuildConfig
-import com.edlo.demovideolistwithroom.MyDemoApplication
+import com.edlo.demodrama.BuildConfig
+import com.edlo.demodrama.MyDemoApplication
 
 class SharedPreferencesHelper {
     private enum class Keys {

@@ -1,4 +1,4 @@
-package com.edlo.demovideolistwithroom.db
+package com.edlo.demodrama.db
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

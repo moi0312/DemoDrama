@@ -1,4 +1,4 @@
-package com.edlo.demovideolistwithroom.ui.main
+package com.edlo.demodrama.ui.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,10 +11,10 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import androidx.recyclerview.widget.GridLayoutManager
-import com.edlo.demovideolistwithroom.R
-import com.edlo.demovideolistwithroom.databinding.FragmentListBinding
-import com.edlo.demovideolistwithroom.ui.base.BaseActivity
-import com.edlo.demovideolistwithroom.ui.base.BaseFragment
+import com.edlo.demodrama.R
+import com.edlo.demodrama.databinding.FragmentListBinding
+import com.edlo.demodrama.ui.base.BaseActivity
+import com.edlo.demodrama.ui.base.BaseFragment
 class MainFragment : BaseFragment<MainViewModel, FragmentListBinding>() {
     companion object {
         val TAG = MainFragment::class.java.simpleName

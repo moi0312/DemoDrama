@@ -1,4 +1,4 @@
-package com.edlo.demovideolistwithroom.ui.base
+package com.edlo.demodrama.ui.base
 
 import android.os.Bundle
 import android.view.LayoutInflater

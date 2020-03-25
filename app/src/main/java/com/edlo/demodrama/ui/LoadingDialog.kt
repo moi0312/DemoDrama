@@ -1,11 +1,11 @@
-package com.edlo.demovideolistwithroom.ui
+package com.edlo.demodrama.ui
 
 import android.app.Activity
 import android.app.Dialog
 import android.content.Context
 import android.content.ContextWrapper
 import android.view.LayoutInflater
-import com.edlo.demovideolistwithroom.R
+import com.edlo.demodrama.R
 
 class LoadingDialog(context: Context, themeResId: Int): Dialog(context, themeResId) {
 

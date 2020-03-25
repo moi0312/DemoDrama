@@ -1,10 +1,9 @@
 package com.example.testcoroutines.net
 
 import com.edlo.demogithub.util.Log
-import com.edlo.demovideolistwithroom.BuildConfig
-import com.edlo.demovideolistwithroom.MyDemoApplication
-import com.edlo.demovideolistwithroom.db.Drama
-import com.edlo.demovideolistwithroom.net.NetworkCallback
+import com.edlo.demodrama.BuildConfig
+import com.edlo.demodrama.db.Drama
+import com.edlo.demodrama.net.NetworkCallback
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -26,7 +25,7 @@ class ApiChocoHelper private constructor() {
         val okHttpClientBuilder = OkHttpClient().newBuilder()
             .addInterceptor { chain ->
                 var reqBuilder = chain.request().newBuilder()
-                    .url(chain.request().url())
+                    .url(chain.request().url)
                     .addHeader("Accept", "application/json")
                     .addHeader("Content-Type", "application/json")
                 chain.proceed(reqBuilder.build())

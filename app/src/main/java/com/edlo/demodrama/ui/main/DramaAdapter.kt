@@ -1,14 +1,14 @@
-package com.edlo.demovideolistwithroom.ui.main
+package com.edlo.demodrama.ui.main
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.edlo.demogithub.util.GlideApp
-import com.edlo.demovideolistwithroom.R
-import com.edlo.demovideolistwithroom.databinding.ItemDramaBinding
-import com.edlo.demovideolistwithroom.db.Drama
-import com.edlo.demovideolistwithroom.ui.base.EmptyViewSupportAdapter
-import com.edlo.demovideolistwithroom.util.Utilities
+import com.edlo.demodrama.R
+import com.edlo.demodrama.databinding.ItemDramaBinding
+import com.edlo.demodrama.db.Drama
+import com.edlo.demodrama.ui.base.EmptyViewSupportAdapter
+import com.edlo.demodrama.util.Utilities
 
 class DramaAdapter : EmptyViewSupportAdapter<DramaAdapter.DramaViewHolder>() {
     companion object {

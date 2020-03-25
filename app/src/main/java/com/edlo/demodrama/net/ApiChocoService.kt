@@ -1,7 +1,6 @@
 package com.example.testcoroutines.net
 
-import com.edlo.demovideolistwithroom.db.Drama
-import com.edlo.demovideolistwithroom.net.data.DramaResponseData
+import com.edlo.demodrama.net.data.DramaResponseData
 import kotlinx.coroutines.Deferred
 import retrofit2.http.*
 

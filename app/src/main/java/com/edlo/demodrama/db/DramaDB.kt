@@ -1,11 +1,9 @@
-package com.edlo.demovideolistwithroom.db
+package com.edlo.demodrama.db
 
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.room.migration.Migration
-import androidx.sqlite.db.SupportSQLiteDatabase
-import com.edlo.demovideolistwithroom.MyDemoApplication
+import com.edlo.demodrama.MyDemoApplication
 
 @Database(entities = arrayOf(Drama::class), version = 1)
 abstract class DramaDB : RoomDatabase() {

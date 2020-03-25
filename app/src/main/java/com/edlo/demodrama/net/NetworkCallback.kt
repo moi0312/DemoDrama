@@ -1,12 +1,11 @@
-package com.edlo.demovideolistwithroom.net
+package com.edlo.demodrama.net
 
-import android.app.Application
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.Network
 import android.net.NetworkRequest
 import com.edlo.demogithub.util.Log
-import com.edlo.demovideolistwithroom.MyDemoApplication
+import com.edlo.demodrama.MyDemoApplication
 
 class NetworkCallback: ConnectivityManager.NetworkCallback() {
     companion object {

@@ -1,15 +1,12 @@
-package com.edlo.demovideolistwithroom.ui.base
+package com.edlo.demodrama.ui.base
 
 import android.content.Context
 import android.os.Bundle
 import android.os.IBinder
-import android.view.MotionEvent
-import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import com.edlo.demovideolistwithroom.R
-import com.edlo.demovideolistwithroom.ui.LoadingDialog
+import com.edlo.demodrama.R
+import com.edlo.demodrama.ui.LoadingDialog
 
 abstract class BaseActivity<VM: BaseViewModel>: AppCompatActivity() {
 
