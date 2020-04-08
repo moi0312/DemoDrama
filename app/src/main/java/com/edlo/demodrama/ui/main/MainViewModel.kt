@@ -4,12 +4,12 @@ import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.edlo.demogithub.util.Log
 import com.edlo.demodrama.db.Drama
 import com.edlo.demodrama.db.DramaDB
+import com.edlo.demodrama.net.ApiChocoHelper
 import com.edlo.demodrama.ui.base.BaseViewModel
+import com.edlo.demodrama.util.Log
 import com.edlo.demodrama.util.SharedPreferencesHelper
-import com.example.testcoroutines.net.ApiChocoHelper
 import kotlinx.coroutines.launch
 
 class MainViewModel: BaseViewModel() {

@@ -5,12 +5,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
-import com.edlo.demogithub.util.GlideApp
 import com.edlo.demodrama.R
 import com.edlo.demodrama.databinding.FragmentDramaDetailBinding
 import com.edlo.demodrama.db.Drama
 import com.edlo.demodrama.ui.base.BaseFragment
 import com.edlo.demodrama.ui.base.BaseViewModel
+import com.edlo.demodrama.util.GlideApp
 import com.edlo.demodrama.util.Utilities
 
 class DramaDetailFragment: BaseFragment<BaseViewModel, FragmentDramaDetailBinding>() {

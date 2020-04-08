@@ -1,9 +1,8 @@
-package com.example.testcoroutines.net
+package com.edlo.demodrama.net
 
-import com.edlo.demogithub.util.Log
+import com.edlo.demodrama.util.Log
 import com.edlo.demodrama.BuildConfig
 import com.edlo.demodrama.db.Drama
-import com.edlo.demodrama.net.NetworkCallback
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

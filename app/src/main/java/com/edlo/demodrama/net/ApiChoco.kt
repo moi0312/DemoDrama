@@ -1,4 +1,4 @@
-package com.example.testcoroutines.net
+package com.edlo.demodrama.net
 
 object ApiChoco {
     const val BASE_URL = "https://static.linetv.tw"

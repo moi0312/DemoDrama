@@ -3,7 +3,7 @@ package com.edlo.demodrama.ui.main
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.edlo.demogithub.util.GlideApp
+import com.edlo.demodrama.util.GlideApp
 import com.edlo.demodrama.R
 import com.edlo.demodrama.databinding.ItemDramaBinding
 import com.edlo.demodrama.db.Drama

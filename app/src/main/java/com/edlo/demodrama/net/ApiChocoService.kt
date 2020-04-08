@@ -1,4 +1,4 @@
-package com.example.testcoroutines.net
+package com.edlo.demodrama.net
 
 import com.edlo.demodrama.net.data.DramaResponseData
 import kotlinx.coroutines.Deferred
