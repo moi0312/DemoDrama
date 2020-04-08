@@ -3,8 +3,6 @@ package com.edlo.demodrama.ui.main
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelStoreOwner
 import com.edlo.demodrama.R
 import com.edlo.demodrama.databinding.FragmentDramaDetailBinding
 import com.edlo.demodrama.db.Drama
@@ -62,7 +60,7 @@ class DramaDetailFragment: BaseFragment<BaseViewModel, FragmentDramaDetailBindin
     }
 
     override fun initViewModel(): BaseViewModel {
-        return ViewModelProvider(activity as ViewModelStoreOwner).get(BaseViewModel::class.java)
+        return object: BaseViewModel(){ }
     }
 
     override fun initViewBinding(inflater: LayoutInflater,
