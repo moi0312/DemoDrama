@@ -1,4 +1,4 @@
-package com.edlo.demogithub.util
+package com.edlo.demodrama.util
 
 import com.bumptech.glide.annotation.GlideModule
 import com.bumptech.glide.module.AppGlideModule

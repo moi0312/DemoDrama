@@ -1,4 +1,4 @@
-package com.edlo.demogithub.util
+package com.edlo.demodrama.util
 
 import android.util.Log
 import com.edlo.demodrama.BuildConfig

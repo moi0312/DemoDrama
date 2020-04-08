@@ -1,5 +1,6 @@
 package com.edlo.demodrama.ui.main
 
+import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -11,7 +12,7 @@ import com.edlo.demodrama.util.SharedPreferencesHelper
 import com.example.testcoroutines.net.ApiChocoHelper
 import kotlinx.coroutines.launch
 
-class MainViewModel : BaseViewModel() {
+class MainViewModel: BaseViewModel() {
 
     private var dramas: MutableLiveData<ArrayList<Drama>> = MutableLiveData(ArrayList())
     fun getDramas(): LiveData<ArrayList<Drama>> { return dramas }

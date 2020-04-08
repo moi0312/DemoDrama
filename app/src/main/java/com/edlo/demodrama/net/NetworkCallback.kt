@@ -4,7 +4,7 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.Network
 import android.net.NetworkRequest
-import com.edlo.demogithub.util.Log
+import com.edlo.demodrama.util.Log
 import com.edlo.demodrama.MyDemoApplication
 
 class NetworkCallback: ConnectivityManager.NetworkCallback() {
