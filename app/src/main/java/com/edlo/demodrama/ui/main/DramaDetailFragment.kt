@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.edlo.demodrama.R
 import com.edlo.demodrama.databinding.FragmentDramaDetailBinding
-import com.edlo.demodrama.db.Drama
+import com.edlo.demodrama.repository.local.Drama
 import com.edlo.demodrama.ui.base.BaseFragment
 import com.edlo.demodrama.ui.base.BaseViewModel
 import com.edlo.demodrama.util.GlideApp

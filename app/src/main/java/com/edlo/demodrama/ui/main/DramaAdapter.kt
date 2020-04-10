@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.edlo.demodrama.util.GlideApp
 import com.edlo.demodrama.R
 import com.edlo.demodrama.databinding.ItemDramaBinding
-import com.edlo.demodrama.db.Drama
+import com.edlo.demodrama.repository.local.Drama
 import com.edlo.demodrama.ui.base.EmptyViewSupportAdapter
 import com.edlo.demodrama.util.Utilities
 

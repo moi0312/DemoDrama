@@ -22,7 +22,6 @@ abstract class BaseActivity<VM: BaseViewModel>: AppCompatActivity() {
     }
 
     abstract fun initViewModel(): VM
-    abstract fun getActivityViewModel(): VM
 
 //    override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
 //        if (ev.action == MotionEvent.ACTION_DOWN) {

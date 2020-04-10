@@ -1,6 +1,6 @@
-package com.edlo.demodrama.net.data
+package com.edlo.demodrama.repository.net.response
 
-import com.edlo.demodrama.db.Drama
+import com.edlo.demodrama.repository.local.Drama
 import java.io.Serializable
 
 class DramaResponseData(

@@ -3,8 +3,8 @@ package com.edlo.demodrama.ui.base
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.edlo.demodrama.net.NetworkCallback
-import com.edlo.demodrama.net.NetworkCallbackListener
+import com.edlo.demodrama.repository.net.NetworkCallback
+import com.edlo.demodrama.repository.net.NetworkCallbackListener
 
 abstract class BaseViewModel: ViewModel() {
     var isLoading: MutableLiveData<Boolean> = MutableLiveData(false)

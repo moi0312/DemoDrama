@@ -1,4 +1,4 @@
-package com.edlo.demodrama.db
+package com.edlo.demodrama.repository.local
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

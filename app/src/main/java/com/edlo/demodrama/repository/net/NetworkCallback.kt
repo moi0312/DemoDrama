@@ -1,4 +1,4 @@
-package com.edlo.demodrama.net
+package com.edlo.demodrama.repository.net
 
 import android.content.Context
 import android.net.ConnectivityManager

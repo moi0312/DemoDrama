@@ -5,10 +5,11 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelStoreOwner
 import com.edlo.demodrama.R
 import com.edlo.demodrama.databinding.ActivityMainBinding
-import com.edlo.demodrama.db.Drama
-import com.edlo.demodrama.net.NetworkCallback
+import com.edlo.demodrama.repository.local.Drama
+import com.edlo.demodrama.repository.net.NetworkCallback
 import com.edlo.demodrama.ui.base.BaseActivity
 
 class MainActivity : BaseActivity<MainViewModel>() {
@@ -43,10 +44,6 @@ class MainActivity : BaseActivity<MainViewModel>() {
 
     override fun initViewModel(): MainViewModel {
         return ViewModelProvider(this).get(MainViewModel::class.java)
-    }
-
-    override fun getActivityViewModel(): MainViewModel {
-        return viewModel
     }
 
     fun gotoDramaDetail(drama: Drama) {

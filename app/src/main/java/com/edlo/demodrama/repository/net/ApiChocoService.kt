@@ -1,6 +1,6 @@
-package com.edlo.demodrama.net
+package com.edlo.demodrama.repository.net
 
-import com.edlo.demodrama.net.data.DramaResponseData
+import com.edlo.demodrama.repository.net.response.DramaResponseData
 import kotlinx.coroutines.Deferred
 import retrofit2.http.*
 

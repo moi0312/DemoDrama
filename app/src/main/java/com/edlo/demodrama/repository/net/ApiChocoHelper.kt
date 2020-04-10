@@ -1,8 +1,8 @@
-package com.edlo.demodrama.net
+package com.edlo.demodrama.repository.net
 
 import com.edlo.demodrama.util.Log
 import com.edlo.demodrama.BuildConfig
-import com.edlo.demodrama.db.Drama
+import com.edlo.demodrama.repository.local.Drama
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

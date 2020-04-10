@@ -1,12 +1,11 @@
 package com.edlo.demodrama.ui.main
 
-import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.edlo.demodrama.db.Drama
-import com.edlo.demodrama.db.DramaDB
-import com.edlo.demodrama.net.ApiChocoHelper
+import com.edlo.demodrama.repository.local.Drama
+import com.edlo.demodrama.repository.local.DramaDB
+import com.edlo.demodrama.repository.net.ApiChocoHelper
 import com.edlo.demodrama.ui.base.BaseViewModel
 import com.edlo.demodrama.util.Log
 import com.edlo.demodrama.util.SharedPreferencesHelper

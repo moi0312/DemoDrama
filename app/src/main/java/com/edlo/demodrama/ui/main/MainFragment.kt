@@ -68,11 +68,7 @@ class MainFragment : BaseFragment<MainViewModel, FragmentListBinding>() {
     }
 
     override fun initViewModel(): MainViewModel {
-        return if(activity is MainActivity) {
-            (activity as MainActivity).getActivityViewModel()
-        } else {
-            ViewModelProvider(activity as ViewModelStoreOwner).get(MainViewModel::class.java)
-        }
+        return ViewModelProvider(activity as ViewModelStoreOwner).get(MainViewModel::class.java)
     }
 
     override fun initViewBinding(inflater: LayoutInflater,
