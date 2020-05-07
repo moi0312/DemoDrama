@@ -34,12 +34,13 @@ class ApiChocoHelper private constructor() {
         }
         okHttpClient = okHttpClientBuilder.build()
 
-        retrofit = Retrofit.Builder()
+        val retrofitBuilder = Retrofit.Builder()
             .baseUrl(ApiChoco.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .client(okHttpClient)
-            .build()
+
+        retrofit = retrofitBuilder.build()
         service = retrofit.create(ApiChocoService::class.java)
     }
 
