@@ -28,9 +28,7 @@ class MainActivity : BaseActivity<MainViewModel>() {
         setOfflineModeView(NetworkCallback.INSTANCE.networkAvailable)
 
         if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                    .replace(R.id.container, MainFragment.newInstance())
-                    .commitNow()
+            transFragment(SwipeRecyclerViewFragment.TAG, false)
         }
     }
 
@@ -57,8 +55,11 @@ class MainActivity : BaseActivity<MainViewModel>() {
             MainFragment.TAG -> {
                 frag = MainFragment.newInstance()
             }
+            SwipeRecyclerViewFragment.TAG -> {
+                frag = SwipeRecyclerViewFragment.newInstance()
+            }
             DramaDetailFragment.TAG -> {
-                frag = DramaDetailFragment.newInstance(args as Drama)
+                frag = DramaDetailFragment.newInstance(args!! as Drama)
             }
             else -> {
             }

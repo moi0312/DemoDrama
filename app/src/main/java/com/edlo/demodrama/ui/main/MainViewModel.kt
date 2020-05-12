@@ -9,6 +9,7 @@ import com.edlo.demodrama.repository.net.ApiChocoHelper
 import com.edlo.demodrama.ui.base.BaseViewModel
 import com.edlo.demodrama.util.Log
 import com.edlo.demodrama.util.SharedPreferencesHelper
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class MainViewModel: BaseViewModel() {
@@ -46,7 +47,19 @@ class MainViewModel: BaseViewModel() {
                 } else {
                     dramas.value = dramaDao.getAll() as ArrayList<Drama>
                 }
+                dramas.postValue(dramas.value)
             }
+        }
+        isLoading.value = false
+    }
+
+    fun loadMoreDramas() {
+        isLoading.value = true
+        viewModelScope.launch {
+            delay(2000)
+            val dramaDao = DramaDB.getDatabase().dramaDao()
+            dramas.value?.addAll(dramaDao.getAll() as ArrayList<Drama>)
+            dramas.postValue(dramas.value)
         }
         isLoading.value = false
     }

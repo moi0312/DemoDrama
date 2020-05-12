@@ -7,16 +7,19 @@ import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import com.edlo.demodrama.R
 import com.edlo.demodrama.ui.LoadingDialog
+import java.lang.ref.WeakReference
 
-abstract class BaseActivity<VM: BaseViewModel>: AppCompatActivity() {
+abstract class BaseActivity<VM: BaseViewModel>: AppActivity() {
 
     lateinit var viewModel: VM
+    lateinit var weakRef: WeakReference<AppActivity>
 
     lateinit var loadingDialog: LoadingDialog
     fun getLoadDialog(): LoadingDialog = loadingDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        weakRef = WeakReference(this)
         viewModel = initViewModel()
         loadingDialog = LoadingDialog(this, R.style.LoadingDialog)
     }

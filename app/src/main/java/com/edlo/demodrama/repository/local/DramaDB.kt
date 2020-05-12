@@ -5,7 +5,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.edlo.demodrama.MyDemoApplication
 
-@Database(entities = arrayOf(Drama::class), version = 1)
+@Database(entities = arrayOf(Drama::class), exportSchema = false, version = 1)
 abstract class DramaDB : RoomDatabase() {
     companion object {
         val DB_NAME = "db_drama"

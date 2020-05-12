@@ -1,14 +1,18 @@
 package com.edlo.demodrama.ui.main
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+
 import androidx.recyclerview.widget.RecyclerView
-import com.edlo.demodrama.util.GlideApp
 import com.edlo.demodrama.R
 import com.edlo.demodrama.databinding.ItemDramaBinding
+import com.edlo.demodrama.databinding.ItemLoadingViewBinding
 import com.edlo.demodrama.repository.local.Drama
 import com.edlo.demodrama.ui.base.EmptyViewSupportAdapter
+import com.edlo.demodrama.util.GlideApp
 import com.edlo.demodrama.util.Utilities
+
 
 class DramaAdapter : EmptyViewSupportAdapter<DramaAdapter.DramaViewHolder>() {
     companion object {
@@ -21,18 +25,24 @@ class DramaAdapter : EmptyViewSupportAdapter<DramaAdapter.DramaViewHolder>() {
             notifyDataSetChanged()
         }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DramaViewHolder {
-        return DramaViewHolder.create(parent)
-    }
     override fun getItemCount(): Int {
         return data.size
     }
 
-    override fun onBindViewHolder(holder: DramaViewHolder, position: Int) {
-        holder.bindTo(data[position])
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DramaViewHolder {
+        return  DramaViewHolder.create(parent)
     }
 
-    class DramaViewHolder: RecyclerView.ViewHolder {
+    override fun onBindViewHolder(holder: DramaViewHolder, position: Int) {
+        holder.bindTo(data[position]!!)
+    }
+
+    fun removeItem(adapterPosition: Int) {
+        notifyItemRemoved(adapterPosition)
+        data.removeAt(adapterPosition)
+    }
+
+    class DramaViewHolder(private val binding: ItemDramaBinding): RecyclerView.ViewHolder(binding.root) {
         companion object {
             fun create(parent: ViewGroup): DramaViewHolder {
                 var binding = ItemDramaBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -40,12 +50,7 @@ class DramaAdapter : EmptyViewSupportAdapter<DramaAdapter.DramaViewHolder>() {
             }
         }
 
-        private val binding: ItemDramaBinding
         private lateinit var item: Drama
-
-        constructor(binding: ItemDramaBinding): super(binding.root) {
-            this.binding = binding
-        }
 
         init {
             itemView.setOnClickListener {

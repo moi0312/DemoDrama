@@ -24,9 +24,9 @@ class MainFragment : BaseFragment<MainViewModel, FragmentListBinding>() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        binding.listView.layoutManager = GridLayoutManager(activity, 3)
+        binding.listView.layoutManager = GridLayoutManager(activityWeakRef.get(), 3)
         adapter = DramaAdapter()
-        adapter.emptyView = binding.txtListEmpty
+//        adapter.emptyView = binding.txtListEmpty
         binding.listView.adapter = adapter
 
         initView()
@@ -53,11 +53,11 @@ class MainFragment : BaseFragment<MainViewModel, FragmentListBinding>() {
 
     private fun initViewModelObserve() {
         viewModel.listDramasSample()
-        viewModel.getDramas().observe(activity as LifecycleOwner, Observer {
+        viewModel.getDramas().observe(activityWeakRef.get() as LifecycleOwner, Observer {
             adapter.data = it
             adapter.notifyDataSetChanged()
         })
-        viewModel.getSearchKey().observe(activity as LifecycleOwner, Observer { key ->
+        viewModel.getSearchKey().observe(activityWeakRef.get() as LifecycleOwner, Observer { key ->
             binding.inputSearch.setText(key)
             if(key.isNotEmpty()){
                 binding.imgClearSearch.visibility = View.VISIBLE
@@ -68,7 +68,7 @@ class MainFragment : BaseFragment<MainViewModel, FragmentListBinding>() {
     }
 
     override fun initViewModel(): MainViewModel {
-        return ViewModelProvider(activity as ViewModelStoreOwner).get(MainViewModel::class.java)
+        return ViewModelProvider(activityWeakRef.get() as ViewModelStoreOwner).get(MainViewModel::class.java)
     }
 
     override fun initViewBinding(inflater: LayoutInflater,
