@@ -1,13 +1,11 @@
 package com.edlo.demodrama.ui.main
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 
 import androidx.recyclerview.widget.RecyclerView
 import com.edlo.demodrama.R
 import com.edlo.demodrama.databinding.ItemDramaBinding
-import com.edlo.demodrama.databinding.ItemLoadingViewBinding
 import com.edlo.demodrama.repository.local.Drama
 import com.edlo.demodrama.ui.base.EmptyViewSupportAdapter
 import com.edlo.demodrama.util.GlideApp

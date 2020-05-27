@@ -10,17 +10,12 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.edlo.demodrama.R
 import com.edlo.demodrama.databinding.FragmentSwipeRecyclerviewBinding
-import com.edlo.demodrama.repository.local.Drama
 import com.edlo.demodrama.ui.base.BaseActivity
 import com.edlo.demodrama.ui.base.BaseFragment
 import com.edlo.demodrama.util.Log
-import com.yanzhenjie.recyclerview.SwipeMenu
-import com.yanzhenjie.recyclerview.SwipeMenuBridge
-import com.yanzhenjie.recyclerview.SwipeMenuCreator
 import com.yanzhenjie.recyclerview.SwipeMenuItem
 
 class SwipeRecyclerViewFragment : BaseFragment<MainViewModel, FragmentSwipeRecyclerviewBinding>() {
@@ -63,7 +58,7 @@ class SwipeRecyclerViewFragment : BaseFragment<MainViewModel, FragmentSwipeRecyc
         binding.swipeRecyclerView.setSwipeMenuCreator { leftMenu, rightMenu, position ->
             //add swipe menu item
             var deleteItem = SwipeMenuItem(activityWeakRef.get())
-            deleteItem.setImage(R.drawable.ic_delete_black_24dp)
+            deleteItem.setImage(R.drawable.ic_delete)
             deleteItem.setBackgroundColor(Color.RED)
             deleteItem.setHeight(ViewGroup.LayoutParams.MATCH_PARENT)
             deleteItem.setWidth(resources.getDimensionPixelSize(R.dimen.dramaItem_thumb_width))

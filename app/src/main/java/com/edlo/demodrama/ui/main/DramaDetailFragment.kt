@@ -1,5 +1,7 @@
 package com.edlo.demodrama.ui.main
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -47,6 +49,12 @@ class DramaDetailFragment: BaseFragment<BaseViewModel, FragmentDramaDetailBindin
                 getString(R.string.dateFormat_yyyyMMdd_T_HHmmssSSS_Z),
                 getString(R.string.dateFormat_yyyyMMdd)
             )
+
+            binding.imgDrama.setOnClickListener {
+                val intent = Intent(activity, VideoStreamingActivity::class.java)
+                intent.putExtra(VideoStreamingActivity.VIDEO_URL, "https://app.syscjt.cn/Demo1.mp4")
+                activity?.startActivity(intent)
+            }
 
             GlideApp.with(binding.root.context)
                 .load(item.thumb)
