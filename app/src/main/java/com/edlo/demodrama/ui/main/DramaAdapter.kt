@@ -1,6 +1,7 @@
 package com.edlo.demodrama.ui.main
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 
 import androidx.recyclerview.widget.RecyclerView
@@ -10,6 +11,7 @@ import com.edlo.demodrama.repository.local.Drama
 import com.edlo.demodrama.ui.base.EmptyViewSupportAdapter
 import com.edlo.demodrama.util.GlideApp
 import com.edlo.demodrama.util.Utilities
+import kotlinx.android.extensions.LayoutContainer
 
 
 class DramaAdapter : EmptyViewSupportAdapter<DramaAdapter.DramaViewHolder>() {
@@ -32,7 +34,7 @@ class DramaAdapter : EmptyViewSupportAdapter<DramaAdapter.DramaViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: DramaViewHolder, position: Int) {
-        holder.bindTo(data[position]!!)
+        holder.bind(data[position]!!)
     }
 
     fun removeItem(adapterPosition: Int) {
@@ -40,40 +42,43 @@ class DramaAdapter : EmptyViewSupportAdapter<DramaAdapter.DramaViewHolder>() {
         data.removeAt(adapterPosition)
     }
 
-    class DramaViewHolder(private val binding: ItemDramaBinding): RecyclerView.ViewHolder(binding.root) {
+    class DramaViewHolder(itemView: View): RecyclerView.ViewHolder(itemView), LayoutContainer {
         companion object {
             fun create(parent: ViewGroup): DramaViewHolder {
                 var binding = ItemDramaBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-                return DramaViewHolder(binding)
+                return DramaViewHolder(binding.root)
             }
         }
+
+        override val containerView: View?
+            get() = itemView
 
         private lateinit var item: Drama
 
         init {
             itemView.setOnClickListener {
-                val ctx = itemView.context
+                val ctx = containerView!!.context
                 if(ctx is MainActivity){
                     ctx.gotoDramaDetail(item)
                 }
             }
         }
 
-        fun bindTo(item: Drama) {
+        fun bind(item: Drama) {
             this.item = item
-            binding.txtName.text = item.name
-            binding.ratingBar.rating = item.rating
-            val ctx = itemView.context
-            binding.txtDate.text = Utilities.parseUTCDateString(
-                item.createdAt,
-                ctx.getString(R.string.dateFormat_yyyyMMdd_T_HHmmssSSS_Z),
-                ctx.getString(R.string.dateFormat_yyyyMMdd)
-            )
+//            txtName.text = item.name
+//            ratingBar.rating = item.rating
+//            val ctx = itemView.context
+//            txtDate.text = Utilities.parseUTCDateString(
+//                item.createdAt,
+//                ctx.getString(R.string.dateFormat_yyyyMMdd_T_HHmmssSSS_Z),
+//                ctx.getString(R.string.dateFormat_yyyyMMdd)
+//            )
 
-            GlideApp.with(binding.root.context)
-                .load(item.thumb)
-                .placeholder(R.drawable.shape_drama_thumb)
-                .into(binding.imgDrama)
+//            GlideApp.with(containerView!!.context)
+//                .load(item.thumb)
+//                .placeholder(R.drawable.shape_drama_thumb)
+//                .into(imgDrama)
         }
 
     }

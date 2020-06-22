@@ -3,26 +3,15 @@ package com.edlo.demodrama.ui.main
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
-import android.view.Surface
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.edlo.demodrama.BuildConfig
 import com.edlo.demodrama.databinding.ActivityVideoStreamingBinding
 import com.google.android.exoplayer2.*
-import com.google.android.exoplayer2.analytics.PlaybackStats
-import com.google.android.exoplayer2.decoder.DecoderCounters
-import com.google.android.exoplayer2.ext.okhttp.OkHttpDataSourceFactory
 import com.google.android.exoplayer2.source.*
-import com.google.android.exoplayer2.source.dash.DashMediaSource
-//import com.google.android.exoplayer2.source.dash.DashMediaSource
-import com.google.android.exoplayer2.source.hls.HlsMediaSource
 import com.google.android.exoplayer2.trackselection.*
 import com.google.android.exoplayer2.upstream.*
 import com.google.android.exoplayer2.util.Util
-import com.google.android.exoplayer2.video.VideoRendererEventListener
-import okhttp3.OkHttpClient
-import java.io.InputStream
 import java.security.GeneralSecurityException
 import java.security.KeyStore
 import java.security.SecureRandom
@@ -62,7 +51,7 @@ class VideoStreamingActivity : AppCompatActivity() {
 
     private fun initExoPLayer(mp4VideoUri: Uri) {
 
-        simpleExoPlayer = SimpleExoPlayer.Builder(this).build()
+        simpleExoPlayer = ExoPlayerFactory.newSimpleInstance(this, DefaultTrackSelector())
         val simpleExoPlayerView = binding.videoView
         simpleExoPlayerView.useController = true //set to true or false to see controllers
         simpleExoPlayerView.requestFocus()
@@ -71,19 +60,26 @@ class VideoStreamingActivity : AppCompatActivity() {
 
         val httpSourceFactory = createDataSourceFactory(this, Util.getUserAgent(this, BuildConfig.APPLICATION_ID))
         val dataSourceFactory: DataSource.Factory = DefaultDataSourceFactory(this, null, httpSourceFactory)
-        val videoSource: MediaSource = ProgressiveMediaSource.Factory(dataSourceFactory).createMediaSource(mp4VideoUri)
+        val videoSource: MediaSource = ExtractorMediaSource.Factory(dataSourceFactory).createMediaSource(mp4VideoUri)
         val loopingSource = LoopingMediaSource(videoSource)
         // Prepare the player with the source.
         simpleExoPlayer.prepare(loopingSource)
 
         simpleExoPlayer.addListener(object : Player.EventListener {
             override fun onLoadingChanged(isLoading: Boolean) {}
+            override fun onPositionDiscontinuity(reason: Int) {}
+            override fun onRepeatModeChanged(repeatMode: Int) { }
+            override fun onShuffleModeEnabledChanged(shuffleModeEnabled: Boolean) {}
+            override fun onTimelineChanged(timeline: Timeline?, manifest: Any?, reason: Int) {}
             override fun onPlayerStateChanged(playWhenReady: Boolean, playbackState: Int) {
                 when(playbackState) {
-                    PlaybackStats.PLAYBACK_STATE_JOINING_FOREGROUND, PlaybackStats.PLAYBACK_STATE_BUFFERING -> binding.progressBar.visibility = View.VISIBLE
+                    2, 6 -> binding.progressBar.visibility = View.VISIBLE
                     else -> binding.progressBar.visibility = View.GONE
                 }
             }
+            override fun onPlaybackParametersChanged(playbackParameters: PlaybackParameters?) {}
+            override fun onSeekProcessed() {}
+            override fun onTracksChanged(trackGroups: TrackGroupArray?, trackSelections: TrackSelectionArray?) {}
             override fun onPlayerError(error: ExoPlaybackException) {
                 simpleExoPlayer.stop()
             }

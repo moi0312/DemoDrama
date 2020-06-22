@@ -28,7 +28,7 @@ class MainActivity : BaseActivity<MainViewModel>() {
         setOfflineModeView(NetworkCallback.INSTANCE.networkAvailable)
 
         if (savedInstanceState == null) {
-            transFragment(SwipeRecyclerViewFragment.TAG, false)
+            transFragment(NestedEpoxyFragment.TAG, false)
         }
     }
 
@@ -57,6 +57,9 @@ class MainActivity : BaseActivity<MainViewModel>() {
             }
             SwipeRecyclerViewFragment.TAG -> {
                 frag = SwipeRecyclerViewFragment.newInstance()
+            }
+            NestedEpoxyFragment.TAG -> {
+                frag = NestedEpoxyFragment.newInstance()
             }
             DramaDetailFragment.TAG -> {
                 frag = DramaDetailFragment.newInstance(args!! as Drama)
