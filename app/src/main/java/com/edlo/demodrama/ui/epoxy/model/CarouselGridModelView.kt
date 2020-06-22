@@ -1,12 +1,11 @@
-package com.edlo.demodrama.ui.epoxy.view
+package com.edlo.demodrama.ui.epoxy.model
 
 import android.content.Context
-import com.airbnb.epoxy.Carousel
 import com.airbnb.epoxy.ModelView
 import com.airbnb.epoxy.ModelView.Size
 
 @ModelView(saveViewState = true, autoLayout = Size.MATCH_WIDTH_WRAP_HEIGHT)
-class CarouselNoSnap(context: Context) : GridCarousel(context) {
+class CarouselGridModelView(context: Context) : GridCarousel(context) {
 
     override fun getSnapHelperFactory(): Nothing? = null
 }

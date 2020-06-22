@@ -7,7 +7,7 @@ import com.edlo.demodrama.databinding.ItemCategoryHolderBinding
 import com.edlo.demodrama.ui.epoxy.helper.ViewBindingEpoxyModelWithHolder
 
 @EpoxyModelClass(layout = R.layout.item_category_holder)
-abstract class ItemViewBindingEpoxyHolder : ViewBindingEpoxyModelWithHolder<ItemCategoryHolderBinding>() {
+abstract class ItemCategoryHolder : ViewBindingEpoxyModelWithHolder<ItemCategoryHolderBinding>() {
 
     @EpoxyAttribute
     lateinit var listener: () -> Unit
@@ -15,7 +15,7 @@ abstract class ItemViewBindingEpoxyHolder : ViewBindingEpoxyModelWithHolder<Item
     lateinit var title: String
 
     override fun ItemCategoryHolderBinding.bind() {
-        txtTitle.text = this@ItemViewBindingEpoxyHolder.title
+        txtTitle.text = this@ItemCategoryHolder.title
         txtTitle.setOnClickListener { listener() }
     }
 }

@@ -1,29 +1,17 @@
 package com.edlo.demodrama.ui.main
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.EditorInfo
-import android.widget.Toast
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.airbnb.epoxy.EpoxyRecyclerView
-import com.edlo.demodrama.R
 import com.edlo.demodrama.databinding.FragmentNestedEpoxyBinding
-import com.edlo.demodrama.databinding.FragmentSwipeRecyclerviewBinding
-import com.edlo.demodrama.ui.base.BaseActivity
 import com.edlo.demodrama.ui.base.BaseFragment
-import com.edlo.demodrama.ui.epoxy.view.carouselItemCustomView
-import com.edlo.demodrama.ui.epoxy.view.carouselNoSnap
-import com.edlo.demodrama.ui.epoxy.view.itemViewBindingEpoxyHolder
-import com.edlo.demodrama.util.Log
-import com.yanzhenjie.recyclerview.SwipeMenuItem
-import kotlinx.android.synthetic.main.item_category_holder.*
+import com.edlo.demodrama.ui.epoxy.helper.gameCarouselBuilder
+import com.edlo.demodrama.ui.epoxy.model.gameCarouselItemView
+import com.edlo.demodrama.ui.epoxy.view.itemCarouselGameHolder
+import com.edlo.demodrama.ui.epoxy.view.itemCategoryHolder
 
 class NestedEpoxyFragment : BaseFragment<MainViewModel, FragmentNestedEpoxyBinding>() {
     companion object {
@@ -65,22 +53,22 @@ class NestedEpoxyFragment : BaseFragment<MainViewModel, FragmentNestedEpoxyBindi
         recyclerView.withModels {
 
             for (i in 0 until 6) {
-                itemViewBindingEpoxyHolder {
+                itemCategoryHolder {
                     id("view binding $i")
-                    title("This is a ViewBinding item")
-//                    listener {
+                    title(" Category $i")
+                    listener {
 //                        Toast.makeText(this@MainActivity, "clicked", Toast.LENGTH_LONG)
 //                            .show()
-//                    }
+                    }
                 }
-//
-                carouselNoSnap {
+
+                gameCarouselBuilder {
                     id("carousel $i")
                     val lastPage = 10
                     for (j in 0 until lastPage) {
-                        carouselItemCustomView {
+                        gameCarouselItemView {
                             id("carousel $i-$j")
-                            title("Page $j / $lastPage")
+                            title("Game $j / $lastPage")
                         }
                     }
                 }

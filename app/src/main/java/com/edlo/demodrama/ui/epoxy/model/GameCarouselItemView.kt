@@ -1,4 +1,4 @@
-package com.edlo.demodrama.ui.epoxy.view
+package com.edlo.demodrama.ui.epoxy.model
 
 import android.content.Context
 import android.util.AttributeSet
@@ -16,7 +16,7 @@ import com.edlo.demodrama.R
 import com.edlo.demodrama.ui.epoxy.OnVisibilityEventDrawable
 
 @ModelView(autoLayout = ModelView.Size.WRAP_WIDTH_WRAP_HEIGHT)
-class CarouselItemCustomView @JvmOverloads constructor(
+class GameCarouselItemView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
@@ -27,7 +27,7 @@ class CarouselItemCustomView @JvmOverloads constructor(
     private val textView: TextView
 
     init {
-        inflate(context, R.layout.item_carousel_view, this)
+        inflate(context, R.layout.item_carousel_game_holder, this)
         orientation = VERTICAL
         textView = (findViewById(R.id.title))
         textView.setCompoundDrawables(null, null, null, onVisibilityEventDrawable)

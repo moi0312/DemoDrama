@@ -1,4 +1,4 @@
-package com.edlo.demodrama.ui.epoxy.view
+package com.edlo.demodrama.ui.epoxy.model
 
 import android.content.Context
 import androidx.recyclerview.widget.GridLayoutManager
@@ -7,7 +7,7 @@ import com.airbnb.epoxy.Carousel
 import com.airbnb.epoxy.ModelView
 
 
-@ModelView(autoLayout = ModelView.Size.MATCH_WIDTH_WRAP_HEIGHT)
+@ModelView(saveViewState = true, autoLayout = ModelView.Size.MATCH_WIDTH_WRAP_HEIGHT)
 open class GridCarousel(context: Context) : Carousel(context) {
 
     override fun createLayoutManager(): RecyclerView.LayoutManager {
