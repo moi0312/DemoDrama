@@ -84,7 +84,7 @@ dependencies {
     implementation 'com.google.android.exoplayer:exoplayer-ui:2.8.4'
 //    implementation 'com.google.android.exoplayer:extension-okhttp:2.8.4'
     // epoxy
-    implementation 'com.airbnb.android:epoxy:3.11.0'
+    implementation 'com.airbnb.android:epoxy:3.11.0' //3.11.0 / 2.19.0
     kapt 'com.airbnb.android:epoxy-processor:3.11.0'
     //test
     testImplementation 'junit:junit:4.13'

@@ -11,6 +11,6 @@ import com.airbnb.epoxy.ModelView
 open class GridCarousel(context: Context) : Carousel(context) {
 
     override fun createLayoutManager(): RecyclerView.LayoutManager {
-        return GridLayoutManager(context, 2, GridLayoutManager.HORIZONTAL, false)
+        return GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
     }
 }

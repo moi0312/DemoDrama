@@ -21,6 +21,7 @@ import com.edlo.demodrama.ui.epoxy.model.CarouselGridModelViewModel_
 // *
 // * @link https://github.com/airbnb/epoxy/issues/847
 // */
+
 fun ModelCollector.gameCarouselBuilder(builder: GameCarouselBuilder.() -> Unit): CarouselGridModelViewModel_ {
     val carouselBuilder = GameCarouselBuilder().apply { builder() }
     add(carouselBuilder.carouselGridModel)

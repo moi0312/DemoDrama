@@ -3,15 +3,13 @@ package com.edlo.demodrama.ui.main
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import com.airbnb.epoxy.EpoxyRecyclerView
 import com.edlo.demodrama.databinding.FragmentNestedEpoxyBinding
 import com.edlo.demodrama.ui.base.BaseFragment
-import com.edlo.demodrama.ui.epoxy.helper.gameCarouselBuilder
-import com.edlo.demodrama.ui.epoxy.model.gameCarouselItemView
-import com.edlo.demodrama.ui.epoxy.view.itemCarouselGameHolder
-import com.edlo.demodrama.ui.epoxy.view.itemCategoryHolder
+import com.edlo.demodrama.ui.epoxy.controller.CarouselGameController
 
 class NestedEpoxyFragment : BaseFragment<MainViewModel, FragmentNestedEpoxyBinding>() {
     companion object {
@@ -19,6 +17,7 @@ class NestedEpoxyFragment : BaseFragment<MainViewModel, FragmentNestedEpoxyBindi
         fun newInstance() = NestedEpoxyFragment()
     }
 
+    private var carouselGameController: CarouselGameController = CarouselGameController()
     private lateinit var recyclerView: EpoxyRecyclerView
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -50,69 +49,15 @@ class NestedEpoxyFragment : BaseFragment<MainViewModel, FragmentNestedEpoxyBindi
     }
 
     private fun initList() {
-        recyclerView.withModels {
+        carouselGameController.onCategoryClicked = {
 
-            for (i in 0 until 6) {
-                itemCategoryHolder {
-                    id("view binding $i")
-                    title(" Category $i")
-                    listener {
-//                        Toast.makeText(this@MainActivity, "clicked", Toast.LENGTH_LONG)
-//                            .show()
-                    }
-                }
-
-                gameCarouselBuilder {
-                    id("carousel $i")
-                    val lastPage = 10
-                    for (j in 0 until lastPage) {
-                        gameCarouselItemView {
-                            id("carousel $i-$j")
-                            title("Game $j / $lastPage")
-                        }
-                    }
-                }
-            }
         }
-//        binding.swipeRecyclerView.layoutManager = LinearLayoutManager(activityWeakRef.get())
-//
-//        binding.swipeRecyclerView.setSwipeMenuCreator { leftMenu, rightMenu, position ->
-//            //add swipe menu item
-//            var deleteItem = SwipeMenuItem(activityWeakRef.get())
-//            deleteItem.setImage(R.drawable.ic_delete)
-//            deleteItem.setBackgroundColor(Color.RED)
-//            deleteItem.setHeight(ViewGroup.LayoutParams.MATCH_PARENT)
-//            deleteItem.setWidth(resources.getDimensionPixelSize(R.dimen.dramaItem_thumb_width))
-//
-//            rightMenu.addMenuItem(deleteItem)
-//        }
-//        binding.swipeRecyclerView.setOnItemMenuClickListener { menuBridge, adapterPosition ->
-//            menuBridge.closeMenu()
-//
-//            Log.d("OnItemMenuClick: direction: ${menuBridge.direction}, position: ${menuBridge.position}")
-//
-//            if(menuBridge.direction == -1) {
-//                when(menuBridge.position) {
-//                    0 -> {
-//                        adapter.removeItem(adapterPosition)
-//                    }
-//                    else -> {}
-//                }
-//            }
-//        }
-//        binding.swipeRecyclerView.useDefaultLoadMore()
-////        binding.swipeRecyclerView.setLoadMoreView()
-//        binding.swipeRecyclerView.setLoadMoreListener {
-//            viewModel.loadMoreDramas()
-//        }
-//
-//        binding.swipeRefreshLayout.setOnRefreshListener {
-//            viewModel.listDramasSample()
-//        }
-//
-//        adapter = DramaAdapter()
-//        binding.swipeRecyclerView.adapter = adapter
-//        adapter.emptyView = binding.txtListEmpty
+        carouselGameController.onGameClicked = {
+            Toast.makeText(activity, "game $it clicked", Toast.LENGTH_LONG).show()
+        }
+        recyclerView.setController(carouselGameController)
+        recyclerView.requestModelBuild()
+
     }
 
     private fun initViewModelObserve() {
@@ -126,14 +71,6 @@ class NestedEpoxyFragment : BaseFragment<MainViewModel, FragmentNestedEpoxyBindi
 //            }
 //
 //            binding.swipeRecyclerView.loadMoreFinish(adapter.data.isEmpty(), true)
-//        })
-//        viewModel.getSearchKey().observe(activity as LifecycleOwner, Observer { key ->
-//            binding.inputSearch.setText(key)
-//            if(key.isNotEmpty()){
-//                binding.imgClearSearch.visibility = View.VISIBLE
-//            } else {
-//                binding.imgClearSearch.visibility = View.GONE
-//            }
 //        })
     }
 
